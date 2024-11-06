@@ -145,8 +145,8 @@ Perbedaan antara `const` dengan `final` adalah:
 
   ```dart
   final List<ItemHomepage> items = [
-      ItemHomepage("Lihat Daftar Produk", Icons.list, color: Colors.green),
-      ItemHomepage("Tambah Produk", Icons.add, color: Colors.orange),
+      ItemHomepage("Lihat Daftar Produk", Icons.list, color: Colors.orange),
+      ItemHomepage("Tambah Produk", Icons.add, color: Colors.green),
       ItemHomepage("Logout", Icons.logout, color: Colors.red),
   ];
   ```
