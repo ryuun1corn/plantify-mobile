@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantify_mobile/menu.dart';
+import 'package:plantify_mobile/plantentry_form.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -53,10 +54,11 @@ class LeftDrawer extends StatelessWidget {
             title: const Text('Tambah Plant'),
             // Bagian redirection ke MoodEntryFormPage
             onTap: () {
-              /*
-      TODO: Buatlah routing ke MoodEntryFormPage di sini,
-      setelah halaman MoodEntryFormPage sudah dibuat.
-      */
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PlantEntryFormPage(),
+                  ));
             },
           ),
         ],
