@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:plantify_mobile/menu.dart';
-import 'package:plantify_mobile/plantentry_form.dart';
+import 'package:plantify_mobile/screens/menu.dart';
+import 'package:plantify_mobile/screens/plantentry_form.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
