@@ -1,10 +1,16 @@
-# plantify_mobile
+# <center>Plantify :deciduous_tree:</center>
 
-# A new Flutter project.
+<center>
+    <a href="http://yudayana-arif-plantify.pbp.cs.ui.ac.id/" target="_blank">
+        yudayana-arif-plantify.pbp.cs.ui.ac.id
+    </a>
+    <br>
+</center>
+<br>
 
-# AIsistant
+> :sunflower: **Reminder:** Have you watered your plants today?
 
-> :robot: **Notice:** Looking for a personalized AI assistant? You're in the right place!
+---
 
 ### Jawaban Tugas :seven:
 
