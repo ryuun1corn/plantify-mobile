@@ -1,9 +1,6 @@
-# <center>Plantify :deciduous_tree:</center>
+# <center>Plantify Mobile :deciduous_tree:</center>
 
 <center>
-    <a href="http://yudayana-arif-plantify.pbp.cs.ui.ac.id/" target="_blank">
-        yudayana-arif-plantify.pbp.cs.ui.ac.id
-    </a>
     <br>
 </center>
 <br>
@@ -14,7 +11,7 @@
 
 ### Jawaban Tugas :seven:
 
-<details open>
+<details>
     <summary>Lihat disini</summary>
 
 ##### 1. Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget, dan jelaskan perbedaan dari keduanya.
