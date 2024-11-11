@@ -252,7 +252,35 @@ class _PlantEntryFormPageState extends State<PlantEntryFormPage> {
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // Add your save logic here
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: const Text('Tanaman berhasil tersimpan'),
+                            content: SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Nama Tanaman: $_plantName'),
+                                  Text('Harga Tanaman: $_plantPrice'),
+                                  Text('Berat Tanaman: $_plantWeight'),
+                                  Text('Stok Tanaman: $_plantStock'),
+                                  Text('Deskripsi Tanaman: $_plantDescription'),
+                                ],
+                              ),
+                            ),
+                            actions: [
+                              TextButton(
+                                child: const Text('OK'),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  _formKey.currentState!.reset();
+                                },
+                              ),
+                            ],
+                          );
+                        },
+                      );
                     }
                   },
                   child: const Text(
