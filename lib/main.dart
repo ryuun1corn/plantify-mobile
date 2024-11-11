@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'Plantify',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.indigo,
-        ).copyWith(secondary: Colors.indigo[400]),
+          primarySwatch: Colors.green,
+        ).copyWith(secondary: Colors.greenAccent),
         useMaterial3: true,
       ),
       home: MyHomePage(),
