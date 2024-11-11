@@ -34,6 +34,8 @@ Column(
   ],
 )
 ```
+![image](https://github.com/user-attachments/assets/e33553a4-d1ae-4314-82a7-eabe9301b5c6)
+
 
 Contoh implementasi dari `Row`:
 
@@ -48,6 +50,9 @@ Row(
   ],
 )
 ```
+
+![image](https://github.com/user-attachments/assets/42616b89-e934-45bf-b694-96310a564280)
+
 
 ##### 3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
 
