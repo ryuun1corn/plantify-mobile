@@ -1,11 +1,16 @@
 # <center>Plantify Mobile :deciduous_tree:</center>
 
-<center>
-    <br>
-</center>
-<br>
-
 > :sunflower: **Reminder:** Have you watered your plants today?
+
+---
+
+### Jawaban Tugas :eight:
+
+<details open>
+    <summary>Lihat disini</summary>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, nunc nec
+
+</details>
 
 ---
 
