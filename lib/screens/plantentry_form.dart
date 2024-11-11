@@ -14,7 +14,6 @@ class _PlantEntryFormPageState extends State<PlantEntryFormPage> {
   String _plantName = '';
   int _plantPrice = 0;
   String _plantWeight = '0';
-  int _plantStock = 0;
   String _plantDescription = '';
 
   @override
@@ -129,7 +128,8 @@ class _PlantEntryFormPageState extends State<PlantEntryFormPage> {
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                 ),
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(RegExp(
                       r'^\d*\.?\d{0,2}')), // Allow up to 2 decimal places
@@ -156,48 +156,6 @@ class _PlantEntryFormPageState extends State<PlantEntryFormPage> {
                   if (weight > 1000) {
                     // 1000 kg limit
                     return "Berat tanaman terlalu besar";
-                  }
-
-                  return null;
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Stok Tanaman",
-                  labelText: "Stok Tanaman",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                ),
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-                onChanged: (String? value) {
-                  setState(() {
-                    _plantStock = value!.isEmpty ? 0 : int.parse(value);
-                  });
-                },
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return "Stok tanaman tidak boleh kosong";
-                  }
-
-                  final stock = int.tryParse(value);
-                  if (stock == null) {
-                    return "Stok harus berupa angka";
-                  }
-
-                  if (stock < 0) {
-                    return "Stok tidak boleh negatif";
-                  }
-
-                  if (stock > 10000) {
-                    // 10,000 units limit
-                    return "Stok terlalu besar";
                   }
 
                   return null;
@@ -264,7 +222,6 @@ class _PlantEntryFormPageState extends State<PlantEntryFormPage> {
                                   Text('Nama Tanaman: $_plantName'),
                                   Text('Harga Tanaman: $_plantPrice'),
                                   Text('Berat Tanaman: $_plantWeight'),
-                                  Text('Stok Tanaman: $_plantStock'),
                                   Text('Deskripsi Tanaman: $_plantDescription'),
                                 ],
                               ),
