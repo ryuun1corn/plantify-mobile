@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantify_mobile/widgets/left_drawer.dart';
+import 'package:plantify_mobile/plantentry_form.dart';
 
 class MyHomePage extends StatelessWidget {
   final String npm = '2306215160'; // NPM
@@ -167,7 +168,18 @@ class ItemCard extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}")));
+
+          // Navigate ke route yang sesuai (tergantung jenis tombol)
+          if (item.name == "Tambah Produk") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const PlantEntryFormPage(),
+              ),
+            );
+          }
         },
+
         // Container untuk menyimpan Icon dan Text
         child: Container(
           padding: const EdgeInsets.all(8),
