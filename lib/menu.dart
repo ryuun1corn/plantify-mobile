@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantify_mobile/widgets/left_drawer.dart';
 
 class MyHomePage extends StatelessWidget {
   final String npm = '2306215160'; // NPM
@@ -30,6 +31,8 @@ class MyHomePage extends StatelessWidget {
         // Warna latar belakang AppBar diambil dari skema warna tema aplikasi.
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
+      // Masukkan drawer sebagai parameter nilai drawer dari widget Scaffold
+      drawer: const LeftDrawer(),
       // Body halaman dengan padding di sekelilingnya.
       body: Padding(
         padding: const EdgeInsets.all(16.0),
