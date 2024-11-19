@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantify_mobile/widgets/left_drawer.dart';
-import 'package:plantify_mobile/widgets/plant_card.dart';
+import 'package:plantify_mobile/widgets/tracker_card.dart';
 
 class MyHomePage extends StatelessWidget {
   final String npm = '2306215160'; // NPM
@@ -8,7 +8,8 @@ class MyHomePage extends StatelessWidget {
   final String className = 'PBP D'; // Kelas
 
   final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Daftar Produk", Icons.list, color: Colors.orange),
+    ItemHomepage("Lihat Daftar Tropical Plant", Icons.list,
+        color: Colors.orange),
     ItemHomepage("Tambah Produk", Icons.add, color: Colors.green),
     ItemHomepage("Logout", Icons.logout, color: Colors.red),
   ];

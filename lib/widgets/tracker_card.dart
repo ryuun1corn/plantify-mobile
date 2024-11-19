@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantify_mobile/screens/plantentry_form.dart';
+import 'package:plantify_mobile/screens/list_tropicalplant.dart';
 
 class ItemHomepage {
   final String name;
@@ -39,6 +40,13 @@ class ItemCard extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => const PlantEntryFormPage(),
+              ),
+            );
+          } else if (item.name == "Lihat Daftar Tropical Plant") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const TropicalPlantPage(),
               ),
             );
           }
