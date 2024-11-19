@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantify_mobile/screens/list_tropicalplant.dart';
 import 'package:plantify_mobile/screens/menu.dart';
 import 'package:plantify_mobile/screens/plantentry_form.dart';
 
@@ -61,6 +62,18 @@ class LeftDrawer extends StatelessWidget {
                   ));
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.forest),
+            title: const Text('Tropical Plants List'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const TropicalPlantPage(),
+                ),
+              );
+            },
+          )
         ],
       ),
     );
