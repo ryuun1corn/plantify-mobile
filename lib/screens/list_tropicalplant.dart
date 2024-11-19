@@ -3,6 +3,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:plantify_mobile/models/tropical_plant.dart';
 import 'package:plantify_mobile/widgets/left_drawer.dart';
 import 'package:provider/provider.dart';
+import 'package:plantify_mobile/screens/detail_tropicalplant.dart';
 
 class TropicalPlantPage extends StatefulWidget {
   const TropicalPlantPage({super.key});
@@ -59,30 +60,42 @@ class _TropicalPlantPageState extends State<TropicalPlantPage> {
                   return ListView.builder(
                     itemCount: snapshot.data!.length,
                     itemBuilder: (_, index) => Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 12),
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "${snapshot.data![index].fields.name}",
-                            style: const TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 12),
+                        padding: const EdgeInsets.all(20.0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TropicalPlantDetailPage(
+                                  plantId: snapshot.data![index].pk,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${snapshot.data![index].fields.name}",
+                                style: const TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text("${snapshot.data![index].fields.price}"),
+                              const SizedBox(height: 10),
+                              Text(
+                                  "${snapshot.data![index].fields.description}"),
+                              const SizedBox(height: 10),
+                              Text("${snapshot.data![index].fields.weight}"),
+                              const SizedBox(height: 10),
+                            ],
                           ),
-                          const SizedBox(height: 10),
-                          Text("${snapshot.data![index].fields.price}"),
-                          const SizedBox(height: 10),
-                          Text("${snapshot.data![index].fields.description}"),
-                          const SizedBox(height: 10),
-                          Text("${snapshot.data![index].fields.weight}"),
-                          const SizedBox(height: 10),
-                        ],
-                      ),
-                    ),
+                        )),
                   );
                 }
               }
