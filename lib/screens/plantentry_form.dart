@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:plantify_mobile/widgets/left_drawer.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:plantify_mobile/screens/menu.dart';
+import 'dart:convert';
 
 class PlantEntryFormPage extends StatefulWidget {
   const PlantEntryFormPage({super.key});
@@ -18,6 +22,8 @@ class _PlantEntryFormPageState extends State<PlantEntryFormPage> {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+
     return Scaffold(
       appBar: AppBar(
         title: const Center(
@@ -208,36 +214,39 @@ class _PlantEntryFormPageState extends State<PlantEntryFormPage> {
                     backgroundColor: MaterialStateProperty.all(
                         Theme.of(context).colorScheme.primary),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text('Tanaman berhasil tersimpan'),
-                            content: SingleChildScrollView(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Nama Tanaman: $_plantName'),
-                                  Text('Harga Tanaman: $_plantPrice'),
-                                  Text('Berat Tanaman: $_plantWeight'),
-                                  Text('Deskripsi Tanaman: $_plantDescription'),
-                                ],
-                              ),
-                            ),
-                            actions: [
-                              TextButton(
-                                child: const Text('OK'),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                  _formKey.currentState!.reset();
-                                },
-                              ),
-                            ],
-                          );
-                        },
+                      // Save the plant entry
+                      final response = await request.postJson(
+                        "http://127.0.0.1:8000/create-flutter/",
+                        jsonEncode(<String, String>{
+                          "name": _plantName,
+                          "price": _plantPrice.toString(),
+                          "weight": _plantWeight,
+                          "description": _plantDescription,
+                        }),
                       );
+
+                      if (context.mounted) {
+                        if (response['status'] == 'success') {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text(
+                                "Tanaman tropis baru berhasil ditambahkan!"),
+                          ));
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MyHomePage()),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content:
+                                Text("Terdapat kesalahan, silakan coba lagi."),
+                          ));
+                        }
+                      }
                     }
                   },
                   child: const Text(
